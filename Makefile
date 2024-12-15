@@ -9,10 +9,10 @@ create-migration:
 	cargo run -- generate '$(m)'
 
 migration-up:
-	cargo run -- up
+	sea-orm-cli migrate up
 
 migration-down:
-	cargo run -- down
+	sea-orm-cli migrate down
 
 # format code
 format:

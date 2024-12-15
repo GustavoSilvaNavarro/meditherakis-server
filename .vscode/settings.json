@@ -2,7 +2,9 @@
   "cSpell.words": [
     "actix",
     "dotenv",
+    "healthcheck",
     "healthz",
+    "isready",
     "meditherakis"
   ]
 }

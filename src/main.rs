@@ -1,5 +1,5 @@
 mod routes;
-use actix_web::{web::scope, middleware::Logger, App, HttpServer};
+use actix_web::{middleware::Logger, web::scope, App, HttpServer};
 mod config;
 use log::info;
 
@@ -8,7 +8,9 @@ async fn main() -> std::io::Result<()> {
     let config = config::read_config();
 
     let server = HttpServer::new(move || {
-        App::new().wrap(Logger::new("%a %{User-Agent}i %r %s %b %T")).service(scope("/meditherakis/api").configure(routes::monitoring_routes))
+        App::new()
+            .wrap(Logger::new("%a %{User-Agent}i %r %s %b %T"))
+            .service(scope("/meditherakis/api").configure(routes::monitoring_routes))
     });
 
     info!(

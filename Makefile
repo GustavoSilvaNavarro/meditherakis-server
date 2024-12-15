@@ -4,6 +4,16 @@ SERVICE_NAME = meditherakis-server
 CONTAINER_NAME = $(SERVICE_NAME)
 DOCKER_COMPOSE_TAG = $(SERVICE_NAME)
 
+# Sea ORM migrations
+create-migration:
+	cargo run -- generate '$(m)'
+
+migration-up:
+	cargo run -- up
+
+migration-down:
+	cargo run -- down
+
 # format code
 format:
 	cargo fmt --verbose

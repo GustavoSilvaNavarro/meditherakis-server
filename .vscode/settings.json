@@ -5,6 +5,7 @@
     "healthcheck",
     "healthz",
     "isready",
-    "meditherakis"
+    "meditherakis",
+    "serde"
   ]
 }

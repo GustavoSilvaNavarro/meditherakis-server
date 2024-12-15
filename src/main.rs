@@ -10,7 +10,11 @@ async fn main() -> std::io::Result<()> {
     let server = HttpServer::new(move || {
         App::new()
             .wrap(Logger::new("%a %{User-Agent}i %r %s %b %T"))
-            .service(scope("/meditherakis/api").configure(routes::monitoring_routes))
+            .service(
+                scope("/meditherakis/api")
+                    .configure(routes::monitoring_routes)
+                    .configure(routes::quote_routes),
+            )
     });
 
     info!(

@@ -14,6 +14,9 @@ migration-up:
 migration-down:
 	sea-orm-cli migrate down
 
+create-entities:
+	sea-orm-cli generate entity -o src/entities
+
 # format code
 format:
 	cargo fmt --verbose

@@ -1,5 +1,7 @@
 mod adapters;
+mod entities;
 mod routes;
+mod schemas;
 use actix_web::{
     middleware::Logger,
     web::{scope, Data},
